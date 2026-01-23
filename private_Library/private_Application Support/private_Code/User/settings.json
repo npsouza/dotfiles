@@ -1,0 +1,538 @@
+{
+  //Testing
+  // "editor.semanticHighlighting.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
+  // "workbench.editor.labelFormat": "short",
+  "workbench.editor.enablePreview": true,
+  // "workbench.activityBar.location": "hidden",
+  "window.commandCenter": false,
+  "terminal.external.osxExec": "warp.app",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.lineHeight": 1.3,
+  "terminal.integrated.cursorStyle": "line",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.4,
+  "editor.tabSize": 2,
+  "editor.rulers": [
+    90,
+    120
+  ],
+  "editor.renderLineHighlight": "gutter",
+  "editor.minimap.enabled": true,
+  // "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.parameterHints.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.accessibilitySupport": "off",
+  "editor.linkedEditing": true,
+  "editor.snippets.codeActions.enabled": false,
+  "editor.inlineSuggest.enabled": true,
+  "notebook.formatOnSave.enabled": false,
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": ".eslint*, prettier*, .prettier*, tsconfig*, vite*, pnpm-lock*, bun.lockb, nest*, package-lock.json, .editorconfig",
+    "tailwind.config*": "tailwind.config*, postcss.config*",
+    ".env": ".env*"
+  },
+  "extensions.ignoreRecommendations": true,
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "emmet.includeLanguages": {
+    "twig": "html",
+    "javascript": "javascriptreact",
+    "erb": "html"
+  },
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.twig": "twig",
+    "*.html": "html"
+  },
+  "prettier.printWidth": 100,
+  "prettier.requireConfig": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": true,
+  "scss.validate": false,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[twig]": {
+    "editor.defaultFormatter": "mblode.twig-language-2"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "git.enableSmartCommit": true,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/dist": true,
+    "**/build": true
+  },
+  "sync.gist": "9ad50d94dc00c2d651eccf2cf3e7fec7",
+  "explorer.confirmDelete": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    },
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "opacity": 50
+  },
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/**"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "foreground": "#222",
+      "background": "#ff8800",
+      "iconColour": "#ff8800",
+      "type": "tag-and-comment",
+      "gutterIcon": true
+    },
+    "FIXME": {
+      "foreground": "#f00",
+      "background": "#fff",
+      "iconColour": "#f00",
+      "gutterIcon": true
+    }
+  },
+  "svg.preview.mode": "img",
+  "gitlens.hovers.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "colorize.languages": [
+    "javascript"
+  ],
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "[typescriptreact]": {
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
+  },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "symbols.hidesExplorerArrows": false,
+  "symbols.files.associations": {
+    "*.module.ts": "nest",
+    "*.service.ts": "nest-service",
+    "*.controller.ts": "nest-controller",
+    "*.guard.ts": "typescript",
+    "*.spec.ts": "jest",
+    "vitest.config.e2e.ts": "vite",
+    ".env.sample": "gear",
+    ".env.*": "gear",
+    ".env.example": "gear"
+  },
+  "intelephense.stubs": [
+    "apache",
+    "bcmath",
+    "bz2",
+    "calendar",
+    "com_dotnet",
+    "Core",
+    "ctype",
+    "curl",
+    "date",
+    "dba",
+    "dom",
+    "enchant",
+    "exif",
+    "FFI",
+    "fileinfo",
+    "filter",
+    "fpm",
+    "ftp",
+    "gd",
+    "gettext",
+    "gmp",
+    "hash",
+    "iconv",
+    "imap",
+    "intl",
+    "json",
+    "ldap",
+    "libxml",
+    "mbstring",
+    "meta",
+    "mysqli",
+    "oci8",
+    "odbc",
+    "openssl",
+    "pcntl",
+    "pcre",
+    "PDO",
+    "pdo_ibm",
+    "pdo_mysql",
+    "pdo_pgsql",
+    "pdo_sqlite",
+    "pgsql",
+    "Phar",
+    "posix",
+    "pspell",
+    "random",
+    "readline",
+    "Reflection",
+    "session",
+    "shmop",
+    "SimpleXML",
+    "snmp",
+    "soap",
+    "sockets",
+    "sodium",
+    "SPL",
+    "sqlite3",
+    "standard",
+    "superglobals",
+    "sysvmsg",
+    "sysvsem",
+    "sysvshm",
+    "tidy",
+    "tokenizer",
+    "xml",
+    "xmlreader",
+    "xmlrpc",
+    "xmlwriter",
+    "xsl",
+    "Zend OPcache",
+    "zip",
+    "zlib",
+    "imagick"
+  ],
+  "javascript.preferences.renameMatchingJsxTags": true,
+  "typescript.preferences.renameMatchingJsxTags": true,
+  "redhat.telemetry.enabled": false,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.unfoldedTextOpacity": 0.3,
+  "prettier.useEditorConfig": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "terminal.integrated.stickyScroll.enabled": false,
+  "accessibility.signals.lineHasError": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasFoldedArea": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasBreakpoint": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasInlineSuggestion": {
+    "sound": "off"
+  },
+  "accessibility.signals.onDebugBreak": {
+    "sound": "off"
+  },
+  "accessibility.signals.noInlayHints": {
+    "sound": "off"
+  },
+  "update.mode": "manual",
+  "workbench.colorCustomizations": {},
+  "[ruby]": {
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+  },
+  "eslint.run": "onSave",
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.useESLintClass": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "window.zoomLevel": 1,
+  "snyk.advanced.cliPath": "/usr/local/bin/snyk",
+  "snyk.yesWelcomeNotification": false,
+  "snyk.trustedFolders": [
+    "/Users/nathan.souza/www/app-bff",
+    "/Users/nathan.souza/www/user-validation-api"
+  ],
+  "security.promptForLocalFileProtocolHandling": false,
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "rvm"
+  },
+  "rubyLsp.featureFlags": {
+    "all": true
+  },
+  "rubyLsp.addonSettings": {
+    "Ruby LSP RSpec": {
+      "rspecCommand": "bin/rspec",
+    }
+  },
+  "rubyLsp.useBundlerCompose": false,
+  "rubyLsp.formatter": "rubocop",
+  // "rubyLsp.bundleGemfile": "/Users/nathan.souza/www/ruby-extensions/Gemfile",
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "[svg]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "editor.suggest.showProperties": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "workbench.productIconTheme": "fluent-icons",
+  "editor.tokenColorCustomizations": {
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    // "[*Dark*]": {
+    //   "textMateRules": [
+    //     {
+    //       "scope": "ref.matchtext",
+    //       "settings": {
+    //         "foreground": "#fff"
+    //       }
+    //     }
+    //   ]
+    // },
+  },
+  "workbench.iconTheme": "symbols",
+  "workbench.colorTheme": "Dracula Refined",
+  "debug.javascript.autoAttachFilter": "disabled",
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "githubPullRequests.pullBranch": "never",
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+    "editor.formatOnSave": true
+  },
+  "snyk.folderConfigs": [
+    {
+      "folderPath": "/Users/nathan.souza/www/user-validation-api",
+      "baseBranch": "main",
+      "localBranches": [
+        "bst-infrastructure-terraform-aws-sns-user-validation-status-publisher",
+        "chore/EUA-553",
+        "chore/fix-e2e-testing-running-wild-forever",
+        "chore/fix-micromatch-vulnerability",
+        "chore/fix-security-context-allowPrivilegeEscalation",
+        "chore/update-dependencies-for-vulnerabilities-fix",
+        "feat/EUA-430-update-status-with-score",
+        "feature/EUA-262-create-unico-provider",
+        "feature/EUA-262-creating-env-vars-for-unico-integration",
+        "feature/EUA-262-enable-unico-in-production",
+        "feature/EUA-425-create-cache-module",
+        "feature/EUA-425-enable-cache-for-status-validation-endpoint",
+        "feature/EUA-548",
+        "feature/add-database-transaction",
+        "feature/add-expiration-time-on-process-creation",
+        "feature/add-transaction-on-update-process",
+        "feature/improve-e2e-test-coverage",
+        "feature/logs-improvement-for-liveness-validation-creation-and-update",
+        "feature/send-callback-url-to-unico-provider",
+        "feature/test-coverage-improvements",
+        "fix/e2e-test-workflow",
+        "fix/package-vulnerabilities",
+        "fix/save-use-case-on-process-url-creation",
+        "fix/update-mark-sent-url-endpoint-errors",
+        "hotfix/add-openssl-for-prisma-work",
+        "hotfix/add-unico-env-vars-to-worker",
+        "hotfix/disable-database-request-temporaly",
+        "hotfix/liveness-result-match",
+        "hotfix/truncate-name-for-send-unico-api",
+        "hotfix/truncate-user-name-for-unico-process-creation",
+        "hotfix/unico-max-name-length",
+        "main",
+        "snyk-fix-411212a17ec5c80ad8f2c2304139b038",
+        "snyk-upgrade-3c984ee0d494ef6aee3c217603283591",
+        "staging",
+        "trigger-test",
+        "bst-infrastructure-kubernetes-worker-application-user-validation-worker",
+        "bst-infrastructure-terraform-aws-rds-user-validation-api",
+        "bst-infrastructure-terraform-aws-sqs-liveness-creation",
+        "chore/add-github-code-coverage-workflow",
+        "chore/add-github-test-workflow",
+        "chore/add-isra-config",
+        "chore/add-secrets-manager",
+        "chore/add-studio-host",
+        "chore/change-orm-to-prisma",
+        "chore/config-dd-trace",
+        "chore/enable-external-secret",
+        "chore/fix-service-account",
+        "chore/update-codeowners-mention",
+        "chore/update-project-settings",
+        "chore/update-resources-name",
+        "chore/update-sqs-resource",
+        "feat/EUA-269-webhook-liveness-result",
+        "feat/move-tp-sandbox-liveness-to-external-api",
+        "feature/EUA-266-enpoint-liveness-validation-create",
+        "feature/EUA-267-endpoint-url-validation-process",
+        "feature/EUA-268-endpoint-update-process-after-image-upload",
+        "feature/EUA-287-consume-liveness-process-provider-updates",
+        "feature/add-disconnection-database-action",
+        "feature/add-production-queues-config",
+        "feature/enable-repl",
+        "feature/enable-swagger",
+        "feature/promote-staging",
+        "feature/update-ingress-external-staging",
+        "feature/update-user-validation-process-table",
+        "fix/enable-cors-to-external-api-staging",
+        "fix/remove-rate-limit",
+        "fix/tp-sandbox-external-api-url",
+        "fix/worker-logging",
+        "hotfix/add-queue-policy-to-api",
+        "hotfix/turn-cors-conditional-to-env",
+        "refactor/creating-domain-services",
+        "testing/prisma-studio"
+      ]
+    }
+  ],
+  "dart.flutterSdkPath": "/Users/nathan/Downloads/flutter",
+  "dart.enableSdkFormatter": true,
+  "git.openRepositoryInParentFolders": "never",
+  "Notes.notesLocation": "/Users/nathan.souza/www/notes",
+  // "editor.multiCursorModifier": "ctrlCmd"
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
+  "solargraph.references": true,
+  "solargraph.rename": true,
+  "solargraph.symbols": true,
+  "solargraph.completion": true,
+  "githubPullRequests.terminalLinksHandler": "github",
+  "datadog.connection.oauth.setup.organizationId": "a53df4dc-8811-11ec-bfec-da7ad0900002",
+  "datadog.telemetry.setup.enableTelemetry": "enabled",
+  "gitlens.launchpad.includedOrganizations": [
+    "totalpass"
+  ],
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "accessibility.voice.speechLanguage": "pt-BR",
+  "git.ignoreMissingGitWarning": true,
+  // Python settings
+  "python.analysis.indexing": false,
+  "python.analysis.logLevel": "Trace",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit",
+      "source.unusedImports": "explicit",
+      "source.removeUnusedImports": "explicit",
+    },
+  },
+  "notes.notesLocation": "/Users/nathan.souza/www/notes",
+  "settingsSync.ignoredSettings": [
+    "notes.notesLocation",
+    "-window.zoomLevel"
+  ],
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "editor.codeActionsOnSave": {},
+  "diffEditor.renderSideBySide": true,
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
+  "dev.containers.dockerPath": "/opt/homebrew/bin/docker",
+  "rubyLsp.indexing": {},
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "evenBetterToml.formatter.trailingNewline": false,
+  "editor.renderWhitespace": "all",
+  "chat.viewSessions.orientation": "stacked",
+  "datadog.connection.notification.suppressSignInNotification": true,
+  "datadog.staticAnalysis.notification.suppressOnboarding": true,
+  "python.analysis.autoImportCompletions": true
+}
