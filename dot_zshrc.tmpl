@@ -146,14 +146,6 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# Rust
-# export if exists
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-# ensure cargo bin is in path
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # Begin Node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -197,9 +189,20 @@ esac
 export PATH="$PATH:$HOME/.rvm/bin"
 # End Ruby
 
-# Mise
-eval "$(mise activate zsh)"
-
 # Added by Antigravity
 export PATH="/Users/nathan.souza/.antigravity/antigravity/bin:$PATH"
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
+{{ if eq .chezmoi.hostname "Mac-mini-de-Nathan" }}
+# personal machine settings
+{{ else }}
+# Mise
+eval "$(mise activate zsh)"
+# Rust
+# export if exists
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+# ensure cargo bin is in path
+export PATH="$HOME/.cargo/bin:$PATH"
+{{ end }}
