@@ -368,7 +368,7 @@
     // },
   },
   "workbench.iconTheme": "symbols",
-  "workbench.colorTheme": "Dracula Refined",
+  "workbench.colorTheme": "Dracula Theme",
   "debug.javascript.autoAttachFilter": "disabled",
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
@@ -494,7 +494,7 @@
   "python.analysis.indexing": false,
   "python.analysis.logLevel": "Trace",
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit",
       "source.fixAll": "explicit",
