@@ -1,3 +1,7 @@
+# Isso ignora verificações de segurança em pastas de autocompletar. 
+# É ótimo para velocidade, mas certifique-se de que ela esteja no topo do arquivo
+ZSH_DISABLE_COMPFIX=true
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -25,7 +29,7 @@ ZSH_THEME="spaceship"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -71,10 +75,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node vscode
-  # zsh-autosuggestions
-  # zsh-syntax-highlighting
-)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,7 +117,6 @@ alias gpull="git pull origin \$(git branch --show-current)"
 alias lzd="lazydocker"
 alias gpu="git push -u origin HEAD"
 
-ZSH_DISABLE_COMPFIX=true
 
 # Spaceship
 SPACESHIP_PROMPT_ORDER=(
@@ -137,38 +137,60 @@ SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_BATTERY_SHOW=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
-SPACESHIP_PROMPT_ASYNC=false
+# Força o Spaceship a não procurar tudo de uma vez
+SPACESHIP_PROMPT_ASYNC=true
+SPACESHIP_NODE_SHOW=false # Como você usa NVM, isso atrasa muito o prompt
+SPACESHIP_PYENV_SHOW=false
+
+SPACESHIP_DIR_COLOR="cyan"
+SPACESHIP_USER_COLOR="magenta"
 
 # Android SDK
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export ANDROID_HOME=$HOME/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Begin Node
+# Caminho do NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-# place this after nvm initialization!
-autoload -U add-zsh-hook
+# Função que realmente carrega o NVM
+_load_nvm() {
+    # Remove as funções de placeholder para não dar conflito
+    unset -f node npm npx
+    
+    # Carrega o NVM de fato
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+
+# Cria "placeholders" que chamam a carga real no primeiro uso
+node() { _load_nvm; node "$@" }
+npm() { _load_nvm; npm "$@" }
+npx() { _load_nvm; npx "$@" }
+
+# Mantendo sua função de auto-switch (.nvmrc) de forma segura
 load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+  # Só tenta rodar se o nvm já tiver sido carregado por algum comando acima
+  if type nvm > /dev/null 2>&1; then
+		local node_version="$(nvm version)"
+		local nvmrc_path="$(nvm_find_nvmrc)"
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+		if [ -n "$nvmrc_path" ]; then
+			local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
+			if [ "$nvmrc_node_version" = "N/A" ]; then
+				nvm install
+			elif [ "$nvmrc_node_version" != "$node_version" ]; then
+				nvm use
+			fi
+		elif [ "$node_version" != "$(nvm version default)" ]; then
+			echo "Reverting to nvm default version"
+			nvm use default
+		fi
+	fi
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
@@ -183,12 +205,6 @@ esac
 
 # End Node
 
-# Begin Ruby
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin"
-# End Ruby
-
 # Added by Antigravity
 export PATH="/Users/nathan.souza/.antigravity/antigravity/bin:$PATH"
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
@@ -197,7 +213,9 @@ export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 # personal machine settings
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# Só inicializa o pyenv se ele for realmente necessário
+alias pyenv-init='eval "$(pyenv init -)"'
+export PATH="$HOME/.local/bin:$PATH"
 {{ else }}
 # Mise
 eval "$(mise activate zsh)"
@@ -208,4 +226,10 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 # ensure cargo bin is in path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Begin Ruby
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# export PATH="$PATH:$HOME/.rvm/bin"
+# End Ruby
 {{ end }}

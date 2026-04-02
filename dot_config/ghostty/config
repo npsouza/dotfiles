@@ -1,0 +1,31 @@
+theme=dracula
+#theme = tokyonight
+
+# Nome da fonte (se o nome tiver espaços, use aspas)
+font-family = "Fira Code"
+# font-family = "FiraCode Nerd Font"
+
+# Tamanho da fonte
+font-size = 16
+
+# Ajuste fino (opcional): melhora a legibilidade em telas 4K ou menores
+font-thicken = true
+
+# Remove a barra de título nativa para um visual mais limpo (macOS)
+# window-decoration = false
+
+# Garante que as abas fiquem no topo
+window-title-font-family = "Fira Code"
+
+background-opacity = 0.95
+background-blur = true
+
+window-padding-x = 10
+window-padding-y = 10
+
+# Abre sempre na pasta de projetos (substitua pelo seu caminho)
+working-directory=~/www
+
+window-theme = system
+macos-titlebar-style = tabs
+unfocused-split-opacity = 0.6
