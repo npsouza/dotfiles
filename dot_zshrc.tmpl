@@ -139,7 +139,7 @@ SPACESHIP_BATTERY_SHOW=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 # Força o Spaceship a não procurar tudo de uma vez
 SPACESHIP_PROMPT_ASYNC=true
-SPACESHIP_NODE_SHOW=false # Como você usa NVM, isso atrasa muito o prompt
+SPACESHIP_NODE_SHOW=false
 SPACESHIP_PYENV_SHOW=false
 
 SPACESHIP_DIR_COLOR="cyan"
@@ -152,84 +152,27 @@ SPACESHIP_USER_COLOR="magenta"
 # export PATH=$PATH:$ANDROID_HOME/tools/bin
 # export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# Begin Node
-# Caminho do NVM
-export NVM_DIR="$HOME/.nvm"
-
-# Função que realmente carrega o NVM
-_load_nvm() {
-    # Remove as funções de placeholder para não dar conflito
-    unset -f node npm npx
-    
-    # Carrega o NVM de fato
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
-
-# Cria "placeholders" que chamam a carga real no primeiro uso
-node() { _load_nvm; node "$@" }
-npm() { _load_nvm; npm "$@" }
-npx() { _load_nvm; npx "$@" }
-
-# Mantendo sua função de auto-switch (.nvmrc) de forma segura
-load-nvmrc() {
-  # Só tenta rodar se o nvm já tiver sido carregado por algum comando acima
-  if type nvm > /dev/null 2>&1; then
-		local node_version="$(nvm version)"
-		local nvmrc_path="$(nvm_find_nvmrc)"
-
-		if [ -n "$nvmrc_path" ]; then
-			local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-			if [ "$nvmrc_node_version" = "N/A" ]; then
-				nvm install
-			elif [ "$nvmrc_node_version" != "$node_version" ]; then
-				nvm use
-			fi
-		elif [ "$node_version" != "$(nvm version default)" ]; then
-			echo "Reverting to nvm default version"
-			nvm use default
-		fi
-	fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# Node + Python + outros runtimes — mise
+eval "$(mise activate zsh)"
 
 # pnpm
-export PNPM_HOME="/Users/nathan.souza/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-# End Node
-
 # Added by Antigravity
-export PATH="/Users/nathan.souza/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
-{{ if eq .chezmoi.hostname "Mac-mini-de-Nathan" }}
-# personal machine settings
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# Só inicializa o pyenv se ele for realmente necessário
-alias pyenv-init='eval "$(pyenv init -)"'
 export PATH="$HOME/.local/bin:$PATH"
-{{ else }}
-# Mise
-eval "$(mise activate zsh)"
+
+{{ if ne .chezmoi.hostname "Mac-mini-de-Nathan" }}
 # Rust
-# export if exists
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
-# ensure cargo bin is in path
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# Begin Ruby
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-# export PATH="$PATH:$HOME/.rvm/bin"
-# End Ruby
 {{ end }}
